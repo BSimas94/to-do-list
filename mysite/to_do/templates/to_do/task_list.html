@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To-Do App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      {% if task_list %}
+      <h1>Task List</h1>
+        {% for task in task_list %}
+          <ul class="list-unstyled">
+            <h4>{{task.name}}:</h4>
+            <li>{{task.description}} - {{task.create_date}}<a href="{% url 'to_do:delete' pk=task.pk %}">Delete</a></li>
+          </ul>
+        {% endfor %}
+      {% else %}
+        <h1>You have no tasks!</h1>
+      {% endif %}
+      <button type="button" class="btn btn-success"><a href="{% url 'to_do:create' %}">Add Task</a></button>
+    </div>
+  </body>
+</html>
