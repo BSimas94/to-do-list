@@ -13,13 +13,13 @@
         {% for task in task_list %}
           <ul class="list-unstyled">
             <h4>{{task.name}}:</h4>
-            <li>{{task.description}} - {{task.create_date}}<a href="{% url 'to_do:delete' pk=task.pk %}">Delete</a></li>
+            <li>{{task.description}} - {{task.create_date}} (MST)&nbsp;<button type="button" class="btn btn-danger btn-xs"><a style="color:inherit; text-decoration:none" href="{% url 'to_do:delete' pk=task.pk %}">Delete</a></button></li>
           </ul>
         {% endfor %}
       {% else %}
         <h1>You have no tasks!</h1>
       {% endif %}
-      <button type="button" class="btn btn-success"><a href="{% url 'to_do:create' %}">Add Task</a></button>
+      <button type="button" class="btn btn-success"><a style="color:inherit; text-decoration:none" href="{% url 'to_do:create' %}">Add Task</a></button>
     </div>
   </body>
 </html>

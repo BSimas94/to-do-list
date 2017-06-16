@@ -13,6 +13,7 @@
             {{ form.as_p }}
             {% csrf_token %}
             <input type="submit" class="btn btn-success" value="Add Task">
+            <a href="{% url 'to_do:list' %}">Cancel</a>
         </form>
     </div>
   </body>
